@@ -16,3 +16,29 @@
 ### Reading Material
 
 - The React documentation has a tutorial on learning React: [Tutorial: Tic-Tac-Toe](https://react.dev/learn/tutorial-tic-tac-toe).
+
+## Building a React app
+
+- What are we building?
+- Building the UI
+- Passing data through props
+- Making it interactive
+- Lifting state up
+
+## Data Fetching
+
+- Fetching data from API
+- Error handling
+
+## Testing React applications
+
+- Setting up a test suite
+
+
+## Building a React component library
+
+- Setting up the library
+- Building the library
+- Versioning
+- Publishing
+- Importing
