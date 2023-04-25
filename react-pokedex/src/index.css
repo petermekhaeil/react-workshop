@@ -1,0 +1,37 @@
+:root {
+  --background: #fdffd6;
+  --red-sand: #f78c5e;
+  --red-sand-light: rgba(247, 140, 94, 0.99);
+  --green: #7be5ce;
+  --green-hover: #8ceddb;
+  --yellow: #f8e14f;
+  --purple: #b4acfb;
+  --light-blue: #c5dbfc;
+  --black: #181a26;
+  --dark-purple: #5d49f3;
+  --error: red;
+  --error-hover: #f33;
+  --white: #fff;
+  --spacing-smallest: 4px;
+  --spacing-smaller: 8px;
+  --spacing-small: 16px;
+  --spacing-medium: 24px;
+  --spacing-large: 32px;
+  --spacing-x-large: 48px;
+  --spacing-xx-large: 64px;
+}
+
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--black);
+  background-color: var(--red-sand);
+
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
