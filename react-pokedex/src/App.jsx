@@ -8,53 +8,60 @@ async function fetchRandomPokemon() {
   return await response.json();
 }
 
-function Pokemon({ name, image, onNextClick }) {
+function Pokemon({ name, image, liked, onLikeClick }) {
   return (
     <div className="box">
       <h2>{name}</h2>
       <img src={image} />
-      <button className="button" onClick={onNextClick}>
-        Next
+      <button
+        className={`button ${liked ? "active" : ""}`}
+        onClick={onLikeClick}
+      >
+        ❤️
       </button>
     </div>
   );
 }
 
 function App() {
-  const [pokemons, setPokemons] = useState([]);
+  const [pokemonList, setPokemonList] = useState([]);
 
-  async function handleNextClick(index) {
-    const pokemon = await fetchRandomPokemon();
-    const nextPokemons = pokemons.slice();
-    nextPokemons[index] = pokemon;
-    setPokemons(nextPokemons);
+  function handleClick(index) {
+    const nextPokemonList = pokemonList.slice();
+    nextPokemonList[index].liked = !nextPokemonList[index].liked;
+    setPokemonList(nextPokemonList);
   }
 
   async function handleAddClick() {
     const pokemon = await fetchRandomPokemon();
-    const nextPokemons = pokemons.slice();
-    nextPokemons.push(pokemon);
-    setPokemons(nextPokemons);
+    const nextPokemonList = pokemonList.slice();
+    nextPokemonList.push({
+      name: pokemon.name,
+      liked: false,
+      image: pokemon.sprites.front_default
+    });
+    setPokemonList(nextPokemonList);
   }
 
   return (
     <div className="App">
       <h1>React Pokédex</h1>
       <div className="row">
-        {pokemons.map((pokemon, index) => {
+        {pokemonList.map((pokemon, index) => {
           return (
             <Pokemon
               key={index}
               name={pokemon.name}
-              image={pokemon.sprites.front_default}
-              onNextClick={() => handleNextClick(index)}
+              onLikeClick={() => handleClick(index)}
+              liked={pokemon.liked}
+              image={pokemon.image}
             />
           );
         })}
+        <button className="button" onClick={handleAddClick}>
+          Add Pokémon
+        </button>
       </div>
-      <button className="button" onClick={handleAddClick}>
-        Add
-      </button>
     </div>
   );
 }

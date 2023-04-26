@@ -41,8 +41,11 @@
   cursor: pointer;
   will-change: transform;
   transition: transform 0.25s;
-  flex: 2 1;
   background-color: var(--green);
+}
+
+.button.active {
+  background-color: var(--yellow);
 }
 
 .button:hover {
