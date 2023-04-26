@@ -129,7 +129,7 @@ function App() {
     { name: "Squirtle", liked: false }
   ]);
 
-  function handleClick(index) {
+  function handleLikeClick(index) {
     const nextPokemonList = pokemonList.slice();
     nextPokemonList[index].liked = !nextPokemonList[index].liked;
     setPokemonList(nextPokemonList);
@@ -141,17 +141,17 @@ function App() {
       <div className="row">
         <Pokemon
           name={pokemonList[0].name}
-          onLikeClick={() => handleClick(0)}
+          onLikeClick={() => handleLikeClick(0)}
           liked={pokemonList[0].liked}
         />
         <Pokemon
           name={pokemonList[1].name}
-          onLikeClick={() => handleClick(1)}
+          onLikeClick={() => handleLikeClick(1)}
           liked={pokemonList[1].liked}
         />
         <Pokemon
           name={pokemonList[2].name}
-          onLikeClick={() => handleClick(2)}
+          onLikeClick={() => handleLikeClick(2)}
           liked={pokemonList[2].liked}
         />
       </div>
@@ -170,7 +170,7 @@ function App() {
     { name: "Squirtle", liked: false }
   ]);
 
-  function handleClick(index) {
+  function handleLikeClick(index) {
     const nextPokemonList = pokemonList.slice();
     nextPokemonList[index].liked = !nextPokemonList[index].liked;
     setPokemonList(nextPokemonList);
@@ -185,7 +185,7 @@ function App() {
             <Pokemon
               key={index}
               name={pokemon.name}
-              onLikeClick={() => handleClick(index)}
+              onLikeClick={() => handleLikeClick(index)}
               liked={pokemon.liked}
             />
           );
@@ -198,8 +198,58 @@ function App() {
 
 ## Data Fetching
 
-- Fetching data from API
-- Error handling
+### Fetching data from API
+
+Adding interactivity to fetch more Pokemon:
+
+```jsx
+function App() {
+  const [pokemonList, setPokemonList] = useState([
+    { name: "Bulbasaur", liked: false },
+    { name: "Charmander", liked: false },
+    { name: "Squirtle", liked: false }
+  ]);
+
+  function handleLikeClick(index) {
+    const nextPokemonList = pokemonList.slice();
+    nextPokemonList[index].liked = !nextPokemonList[index].liked;
+    setPokemonList(nextPokemonList);
+  }
+
+  async function handleAddClick() {
+    const pokemon = await fetchRandomPokemon();
+    const nextPokemonList = pokemonList.slice();
+    nextPokemonList.push({
+      name: pokemon.name,
+      liked: false
+    });
+    setPokemonList(nextPokemonList);
+  }
+
+  return (
+    <div className="App">
+      <h1>React Pokédex</h1>
+      <div className="row">
+        {pokemonList.map((pokemon, index) => {
+          return (
+            <Pokemon
+              key={index}
+              name={pokemon.name}
+              onLikeClick={() => handleLikeClick(index)}
+              liked={pokemon.liked}
+            />
+          );
+        })}
+        <button className="button" onClick={handleAddClick}>
+          Add
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+### Error handling
 
 ## Testing React applications
 
