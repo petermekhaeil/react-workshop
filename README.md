@@ -23,7 +23,9 @@ Below are the notes from each session.
 
 ### What are we building?
 
-- Demo: 
+![react-workshop-pokedex vercel app_ (1)](https://user-images.githubusercontent.com/4616064/234523674-55a3525e-d2fb-4f40-a8bf-483b39819152.png)
+
+- Demo: https://react-workshop-pokedex.vercel.app/
 - Source: https://github.com/petermekhaeil/react-workshop/tree/master/react-pokedex
 
 ### Building the UI
