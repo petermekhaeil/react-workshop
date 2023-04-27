@@ -22,3 +22,9 @@ Effects are difficult to grasp when starting out with React. The React docs are 
 I highly recommend learning TypeScript from the wizards:
 
 - [Beginner's TypeScript](https://www.totaltypescript.com/tutorials/beginners-typescript) - Free interactive video tutorial that will help you get started with TypeScript.
+
+## Data Fetching Libraries
+
+- Modern frameworks provide efficient data fetching mechanisms (eg [Next.js](https://nextjs.org/), [Remix](https://remix.run/)).
+- Otherwise, consider using a client-side cache: [React Query](https://tanstack.com/query/v3/), [SWR](https://swr.vercel.app/), [React Router 6.4+](https://reactrouter.com/en/main/start/overview).
+- If using Redux, [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) provides data fetching and caching.
