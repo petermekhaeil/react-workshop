@@ -20,6 +20,7 @@
 ## Workshops
 
 - [Building a React app](https://github.com/petermekhaeil/react-workshop/tree/master/react-pokedex)
+- [Data Fetching](https://github.com/petermekhaeil/react-workshop/tree/master/react-pokedex#fetching-data-from-api)
 - [Testing React applications]()
 - [Building a React component library](https://github.com/petermekhaeil/react-workshop/tree/master/react-library)
 
