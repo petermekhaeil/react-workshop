@@ -22,3 +22,7 @@
 - [Building a React app](https://github.com/petermekhaeil/react-workshop/tree/master/react-pokedex)
 - [Testing React applications]()
 - [Building a React component library](https://github.com/petermekhaeil/react-workshop/tree/master/react-library)
+
+## Further Notes
+
+- See [NOTES.md](https://github.com/petermekhaeil/react-workshop/blob/master/NOTES.md).
