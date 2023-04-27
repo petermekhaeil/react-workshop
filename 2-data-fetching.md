@@ -52,3 +52,26 @@ function App() {
 ```
 
 ## Error handling
+
+Try-catch errors returned from responses that failed:
+
+```jsx
+const [error, setError] = useState(false);
+
+async function handleAddClick(isRandom) {
+  setError(false);
+  try {
+    let pokemon = await fetchRandomPokemon();
+
+    const nextPokemonList = pokemonList.slice();
+    nextPokemonList.push({
+      name: pokemon.name,
+      liked: false,
+      image: pokemon.sprites.front_default
+    });
+    setPokemonList(nextPokemonList);
+  } catch {
+    setError(true);
+  }
+}
+```
