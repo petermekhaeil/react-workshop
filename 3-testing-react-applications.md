@@ -22,7 +22,7 @@ describe('something truthy and falsy', () => {
 
 ### Testing React Components
 
-[react-testing-library](https://testing-library.com/docs/react-testing-library/intro/) is a solution for testing React components. It allows testing of components as how they are intended to be used, rather than testing implementation details.
+[react-testing-library](https://testing-library.com/docs/react-testing-library/intro/) is a solution for testing React components. It allows testing of components on how they are intended to be used, rather than testing implementation details.
 
 #### Setup 
 
