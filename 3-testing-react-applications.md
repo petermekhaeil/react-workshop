@@ -2,30 +2,39 @@
 
 ## Unit Testing
 
-- [Vitest](https://vitest.dev/guide/) is a unit test framework powered by Vite.
-- [jsdom](https://github.com/jsdom/jsdom) will allow HTML testing in Vitest.
-- [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/) is a solution for testing React components.
+[Vitest](https://vitest.dev/guide/) is a unit test framework powered by Vite.
+
+### Example Test:
+
+```js
+import { describe, it, expect } from 'vitest';
+
+describe('something truthy and falsy', () => {
+  it('true to be true', () => {
+    expect(true).toBe(true);
+  });
+
+  it('false to be false', () => {
+    expect(false).toBe(false);
+  });
+});
+```
+
+### Testing React Components
+
+[react-testing-library](https://testing-library.com/docs/react-testing-library/intro/) is a solution for testing React components. It allows testing of components as how they are intended to be used, rather than testing implementation details.
+
+#### Setup 
+
+**Step 1:** Install required dependencies:
 
 ```bash
 npm install -D vitest
 npm install -D jsdom
-npm install -D @testing-library/react @testing-library/jest-dom
+npm install -D @testing-library/react @testing-library/jest-dom```
 ```
 
-```js
-// ./tests/setup.js
-import { expect, afterEach } from 'vitest';
-import { cleanup } from '@testing-library/react';
-import matchers from '@testing-library/jest-dom/matchers';
-
-// extends Vitest's expect method with methods from react-testing-library
-expect.extend(matchers);
-
-// runs a cleanup after each test case (e.g. clearing jsdom)
-afterEach(() => {
-  cleanup();
-});
-```
+**Step 2:** Configure Vitest to use `jsdom` as an environment and to include a new test setup file:
 
 ```js
 // ./vite.config.js
@@ -43,15 +52,54 @@ export default defineConfig({
 });
 ```
 
+**Step 3:** Add a test setup file:
+
+```js
+// ./tests/setup.js
+import { expect, afterEach } from 'vitest';
+import { cleanup } from '@testing-library/react';
+import matchers from '@testing-library/jest-dom/matchers';
+
+// extends Vitest's expect method with methods from react-testing-library
+expect.extend(matchers);
+
+// runs a cleanup after each test case (e.g. clearing jsdom)
+afterEach(() => {
+  cleanup();
+});
+```
+
+#### Example Test
+
 ```jsx
 // ./src/App.test.tsx
-import { render } from '@testing-library/react';
+import * as React from 'react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import App from './App';
 
 describe('App', () => {
   it('renders App component', () => {
     render(<App />);
+    
+    // output the rendered HTML
+    screen.debug();
+        
+    // test if elements exist
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+    expect(screen.getByText('Add')).toBeInTheDocument();
+    
+    // fire events
+    await userEvent.type(screen.getByRole('textbox'), 'pikachu');
+    await userEvent.click(screen.getByRole('button'));
+    
+    // wait for update
+    waitFor(() =>
+      expect(
+        screen.getByText(/pikachu/)
+      ).toBeInTheDocument()
+    );
   });
 });
 ```
