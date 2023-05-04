@@ -4,8 +4,6 @@
 
 [Vitest](https://vitest.dev/guide/) is a unit test framework powered by Vite.
 
-### Example Test:
-
 ```js
 import { describe, it, expect } from 'vitest';
 
@@ -31,7 +29,7 @@ describe('something truthy and falsy', () => {
 ```bash
 npm install -D vitest
 npm install -D jsdom
-npm install -D @testing-library/react @testing-library/jest-dom```
+npm install -D @testing-library/react @testing-library/jest-dom @testing-library/user-event
 ```
 
 **Step 2:** Configure Vitest to use `jsdom` as an environment and to include a new test setup file:
