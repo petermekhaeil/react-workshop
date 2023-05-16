@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
-import "./App.css";
+import { useRef, useState } from 'react';
+import './App.css';
 
 async function fetchPokemon(id) {
-  const url = "https://pokeapi.co/api/v2/pokemon/" + id;
+  const url = 'https://pokeapi.co/api/v2/pokemon/' + id;
   const response = await fetch(url);
   return await response.json();
 }
@@ -18,7 +18,7 @@ function Pokemon({ name, image, liked, onLikeClick }) {
       <h2>{name}</h2>
       <img src={image} />
       <button
-        className={`button ${liked ? "active" : ""}`}
+        className={`button ${liked ? 'active' : ''}`}
         onClick={onLikeClick}
       >
         ❤️
@@ -92,7 +92,10 @@ function App() {
         {error && (
           <div className="error">
             <p>Pokemon not found</p>
-            <img width={220} src="/sad-pikachu.webp" />
+            <img
+              width={220}
+              src={`${import.meta.env.BASE_URL}/sad-pikachu.webp`}
+            />
           </div>
         )}
       </div>
