@@ -1,0 +1,85 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-smaller);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-smaller);
+}
+
+.box {
+  padding: 32px;
+  box-shadow: var(--spacing-smallest) var(--spacing-smallest) var(--black);
+  padding: var(--spacing-small);
+  border: 1px solid var(--black);
+  box-shadow: 2px 2px var(--black);
+  background-color: var(--purple);
+  flex-grow: 1;
+}
+
+.button {
+  position: relative;
+  width: 100%;
+  margin: var(--spacing-smallest) 0;
+  padding: var(--spacing-smaller);
+  border: 1px solid var(--black);
+  font-size: 16px;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  color: var(--black);
+  box-shadow: 4px 4px var(--black);
+  cursor: pointer;
+  will-change: transform;
+  transition: transform 0.25s;
+  background-color: var(--green);
+  flex: 1;
+}
+
+.button.active {
+  background-color: var(--yellow);
+}
+
+.button.yellow {
+  background: var(--yellow);
+}
+
+.button:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px var(--black);
+}
+
+.input {
+  margin-top: var(--spacing-smaller);
+  border: 1px solid var(--black);
+  padding: var(--spacing-smallest);
+  padding-left: var(--spacing-smallest);
+  background-color: var(--white);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--black);
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 4px 4px var(--black);
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: var(--spacing-smallest);
+  width: 100%;
+}
