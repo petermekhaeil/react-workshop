@@ -7,6 +7,11 @@
 - Demo: https://petermekhaeil.com/react-pokedex
 - Source: https://github.com/petermekhaeil/react-workshop/tree/master/react-pokedex
 
+## Getting Started
+
+- Complete the [prequisities](https://github.com/petermekhaeil/react-workshop/tree/master#prequisities).
+- Start by using the [react-app-starter](https://github.com/petermekhaeil/react-workshop/tree/master/react-app-starter) template. This template has the CSS ready to start building the app.
+
 ## Building the UI
 
 ```jsx
