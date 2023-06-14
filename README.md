@@ -13,6 +13,11 @@
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
+#### Other Editors
+
+The [React docs](https://react.dev/learn/editor-setup#your-editor) lists other popular editors.
+
+
 ### Reading Material
 
 - The React documentation has a tutorial on learning React: [Tutorial: Tic-Tac-Toe](https://react.dev/learn/tutorial-tic-tac-toe).
