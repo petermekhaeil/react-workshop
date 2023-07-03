@@ -20,15 +20,19 @@ Vite includes [Library Mode](https://vitejs.dev/guide/build.html#library-mode) t
 
 ```js
 // vite.config.js
-import path from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const _dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.js'),
+      entry: path.resolve(_dirname, 'src/index.js'),
       name: 'MyReactComponent',
       fileName: 'my-react-component'
     },
