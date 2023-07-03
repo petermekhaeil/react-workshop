@@ -75,3 +75,12 @@ dist/my-react-component.js  21.18 kB │ gzip: 6.31 kB
 dist/my-react-component.umd.cjs  13.93 kB │ gzip: 5.44 kB
 ✓ built in 166ms
 ```
+
+## Visual Testing
+
+Use [Storybook](https://storybook.js.org/) to build and test UI components in isolation.
+
+```bash
+npx storybook@latest init
+```
+
