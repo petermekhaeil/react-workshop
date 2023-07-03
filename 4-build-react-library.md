@@ -19,6 +19,7 @@ Ok to proceed? (y)
 Vite includes [Library Mode](https://vitejs.dev/guide/build.html#library-mode) that can be used to build a React component library:
 
 ```js
+// vite.config.js
 import path from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -32,8 +33,10 @@ export default defineConfig({
       fileName: 'my-react-component'
     },
     rollupOptions: {
+      // externalised deps that shouldn't be bundled into the library
       external: ['react', 'react-dom'],
       output: {
+        // global variables to use in the UMD build for externalized deps
         globals: {
           react: 'React'
         }
@@ -42,6 +45,26 @@ export default defineConfig({
   },
   plugins: [react()]
 });
+```
+
+`package.json` needs to be updated for applications to understand how to import the library:
+
+```json
+{
+  "name": "react-component",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/my-react-component.umd.cjs",
+  "module": "./dist/my-react-component.js",
+  "exports": {
+    ".": {
+      "import": "./dist/my-react-component.js",
+      "require": "./dist/my-react-component.umd.cjs"
+    }
+  }
+}
 ```
 
 ## Build a component
