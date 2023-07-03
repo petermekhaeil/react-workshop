@@ -71,6 +71,20 @@ export default defineConfig({
 }
 ```
 
+We need to set React as a peer dependency (and not a dependency) so we do not bundle it with the library when we build it. 
+
+```json
+{
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+```
+
 ## Build a component
 
 ```jsx
