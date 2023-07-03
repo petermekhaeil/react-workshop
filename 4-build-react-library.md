@@ -125,3 +125,26 @@ Use [Storybook](https://storybook.js.org/) to build and test UI components in is
 npx storybook@latest init
 ```
 
+Create a story for `Button`:
+
+```js
+// ./src/button.stories.js
+import { Button } from './button';
+
+// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
+export default {
+  title: 'Example/Button',
+  component: Button,
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
+  tags: ['autodocs']
+};
+
+// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const Primary = {
+  args: {
+    primary: true,
+    label: 'Button'
+  }
+};
+```
+
