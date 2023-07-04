@@ -85,21 +85,90 @@ We need to set React as a peer dependency (and not a dependency) so we do not bu
   }
 ```
 
-## Build a component
+## Build a React component
 
 ```jsx
 // ./src/button.jsx
+import classes from './button.module.css';
 
 export function Button(props) {
   const { children, ...rest } = props;
-  return <button {...rest}>{children}</button>;
+  return (
+    <button className={classes.button} {...rest}>
+      {children}
+    </button>
+  );
 }
-
 ```
 
-```js
-// ./src/index.js
-export { Button } from './button';
+Vite supports [CSS Modules](https://vitejs.dev/guide/features.html#css-modules):
+
+```css
+/* ./src/button.module.css */
+.button {
+  background-color: #4f46e5;
+  color: #fff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 2.5rem;
+  font-size: 14px;
+  line-height: 1rem;
+  border: 0;
+  cursor: pointer;
+  text-transform: none;
+  margin: 0;
+}
+```
+
+## Variant styling
+
+Use [clsx](https://github.com/lukeed/clsx) to construct className strings. Combine classes together based on props:
+
+```jsx
+// ./src/button.jsx
+import classes from './button.module.css';
+import { clsx } from 'clsx';
+
+export function Button(props) {
+  const { children, variant, ...rest } = props;
+
+  const classNames = clsx(classes.button, {
+    [classes.outline]: variant === 'outline'
+  });
+
+  return (
+    <button className={classNames} {...rest}>
+      {children}
+    </button>
+  );
+}
+```
+
+```css
+/* ./src/button.module.css */
+.button {
+  background-color: #4f46e5;
+  color: #fff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 2.5rem;
+  font-size: 14px;
+  line-height: 1rem;
+  border: 0;
+  cursor: pointer;
+  text-transform: none;
+  margin: 0;
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid #4f46e5;
+  color: #4f46e5;
+}
 ```
 
 ## Build the library
@@ -142,8 +211,7 @@ export default {
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary = {
   args: {
-    primary: true,
-    label: 'Button'
+    children: 'Button Text'
   }
 };
 ```
