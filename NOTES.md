@@ -22,5 +22,3 @@ Effects are difficult to grasp when starting out with React. The React docs are 
 I highly recommend learning TypeScript from the wizards:
 
 - [Beginner's TypeScript](https://www.totaltypescript.com/tutorials/beginners-typescript) - Free interactive video tutorial that will help you get started with TypeScript.
-https://react.dev/learn/you-might-not-need-an-effect#fetching-data)
-- [Syncronizing with Effects](https://react.dev/learn/synchronizing-with-effects#fetching-data)
