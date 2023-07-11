@@ -2,7 +2,17 @@
 
 ## Fetching data from API
 
-Adding interactivity to fetch more Pokemon:
+Using the `fetch` Web API to request data from an external API:
+
+```js
+async function fetchPokemon(id) {
+  const url = 'https://pokeapi.co/api/v2/pokemon/' + id;
+  const response = await fetch(url);
+  return await response.json();
+}
+```
+
+Adding interactivity to fetch Pokemon:
 
 ```jsx
 function App() {
